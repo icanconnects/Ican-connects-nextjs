@@ -1,5 +1,5 @@
 {
-  "name": "next-tailwind-vercel",
+  "name": "my-next-app",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -14,8 +14,8 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.15",
+    "tailwindcss": "^3.4.4",
     "postcss": "^8.4.27",
-    "tailwindcss": "^3.4.4"
+    "autoprefixer": "^10.4.15"
   }
 }
