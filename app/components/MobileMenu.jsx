@@ -22,9 +22,8 @@ export function MobileMenu() {
       {menuOpen && (
         <div className='md:hidden fixed top-16 left-0 right-0 w-full bg-white border-b border-gray-200 z-40'>
           <div className='px-4 py-3 flex flex-col gap-3'>
-            <Link href='/#about' className='text-icanDark hover:text-icanBlue py-2 font-medium' onClick={() => setMenuOpen(false)}>About</Link>
-            <Link href='/events' className='text-icanDark hover:text-icanBlue py-2 font-medium' onClick={() => setMenuOpen(false)}>Events</Link>
-            <Link href='/membership' className='text-icanDark hover:text-icanBlue py-2 font-medium' onClick={() => setMenuOpen(false)}>Membership</Link>
+            <Link href='/' className='text-icanDark hover:text-icanBlue py-2 font-medium' onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link href='/about' className='text-icanDark hover:text-icanBlue py-2 font-medium' onClick={() => setMenuOpen(false)}>About</Link>
             <Link href='/contact' className='text-icanDark hover:text-icanBlue py-2 font-medium' onClick={() => setMenuOpen(false)}>Contact</Link>
             <Link href='/membership' className='px-4 py-2 rounded-md bg-icanBlue text-white text-sm font-medium text-center hover:opacity-90 transition' onClick={() => setMenuOpen(false)}>Join ICAN</Link>
           </div>

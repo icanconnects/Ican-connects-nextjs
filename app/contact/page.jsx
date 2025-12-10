@@ -16,8 +16,8 @@ export default function Contact() {
               {/* Email */}
               <div>
                 <h4 className='font-semibold text-icanDark mb-2'>📧 Email</h4>
-                <a href='mailto:info@ican-northyork.ca' className='text-icanBlue hover:underline'>
-                  info@ican-northyork.ca
+                <a href='mailto:ican.connects@outlook.com' className='text-icanBlue hover:underline'>
+                  ican.connects@outlook.com
                 </a>
               </div>
 

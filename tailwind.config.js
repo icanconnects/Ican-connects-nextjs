@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        optima: ['"Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif'],
+      },
       colors: {
         icanBlue: '#0052CC',
         icanGold: '#FDB913',
