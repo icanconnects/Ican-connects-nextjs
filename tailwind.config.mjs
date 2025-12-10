@@ -1,20 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {
-      colors: {
-        icanBlue: '#1e3a8a',      // Deep navy blue (professional)
-        icanAccent: '#dc2626',    // Deep red (cultural, Indian)
-        icanDark: '#0f172a',      // Almost black (elegant)
-        icanGold: '#d97706',      // Gold (cultural accent)
-        icanCream: '#fef3c7',     // Warm cream (subtle)
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }
