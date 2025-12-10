@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
           <div className='max-w-6xl mx-auto flex items-center justify-between p-4'>
             {/* Logo - Clickable to Home */}
             <Link href='/' className='flex items-center gap-2 sm:gap-3 hover:opacity-80 transition'>
-              <Image src='/assets/logo.jpg' alt='ICAN logo' width={40} height={40} className='sm:w-12 sm:h-12 w-10 h-10 rounded-md object-cover' />
+              <Image src='/assets/logo1.png' alt='ICAN logo' width={40} height={40} className='sm:w-12 sm:h-12 w-10 h-10 rounded-md object-cover' />
               <div>
                 <h1 className='text-sm sm:text-lg font-bold text-icanBlue'>ICAN</h1>
                 <p className='text-xs text-gray-600 hidden sm:block'>Indian Community Association</p>
