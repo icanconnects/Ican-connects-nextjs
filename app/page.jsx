@@ -33,7 +33,7 @@ export default function Home() {
           <p className='text-gray-700'>Our mission is to strengthen the Indian community through cultural celebrations, educational programs, and meaningful connections.</p>
         </div>
 
-        <div className='flex flex-col md:flex-row items-center gap-8 mb-12 md:max-w-4xl'>
+        <div className='flex flex-col md:flex-row items-center gap-8 mb-12 mx-auto md:max-w-5xl'>
           <div className='md:w-1/2 flex items-center justify-center'>
             <div className='rounded-xl text-center'>
               <Image 
