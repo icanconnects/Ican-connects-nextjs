@@ -37,7 +37,7 @@ export default function Home() {
           <div className='md:w-1/2 flex items-center justify-center'>
             <div className='rounded-xl text-center'>
               <Image 
-                src='/assets/logo1.png' 
+                src='/assets/logo1.PNG' 
                 alt='ICAN Logo' 
                 width={320} 
                 height={320} 
