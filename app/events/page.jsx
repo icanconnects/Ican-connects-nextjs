@@ -57,7 +57,7 @@ export default function Events() {
         <div className='mt-12 p-8 bg-icanDark text-white rounded-lg text-center'>
           <h3 className='text-2xl font-bold mb-2'>Want to Host an Event?</h3>
           <p className='mb-4'>Contact us to organize your own community event.</p>
-          <a href='mailto:info@ican-northyork.ca' className='inline-block px-6 py-2 bg-icanGold text-icanDark rounded-lg font-semibold hover:opacity-90 transition'>
+          <a href='mailto:ican.connects@outlook.com' className='inline-block px-6 py-2 bg-icanGold text-icanDark rounded-lg font-semibold hover:opacity-90 transition'>
             Get in Touch
           </a>
         </div>

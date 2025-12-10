@@ -82,7 +82,7 @@ export default function Mission() {
             </ul>
           </div>
           <Image 
-            src='https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop' 
+            src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop' 
             alt='Our Vision' 
             width={600} 
             height={400}
@@ -120,9 +120,9 @@ export default function Mission() {
             <Link href='/membership' className='px-8 py-3 bg-icanBlue text-white rounded-lg font-bold hover:opacity-90 transition'>
               Join Our Community
             </Link>
-            <Link href='/events' className='px-8 py-3 border-2 border-icanBlue text-icanBlue rounded-lg font-bold hover:bg-icanCream transition'>
+            {/* <Link href='/events' className='px-8 py-3 border-2 border-icanBlue text-icanBlue rounded-lg font-bold hover:bg-icanCream transition'>
               Explore Events
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>
