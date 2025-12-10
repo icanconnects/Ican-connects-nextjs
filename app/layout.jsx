@@ -1,4 +1,3 @@
-
 import './globals.css'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,7 +7,7 @@ export const metadata = {
   description: 'Connecting the Indian community in North York — culture, support, and celebration.',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className='bg-gray-50 text-gray-900'>

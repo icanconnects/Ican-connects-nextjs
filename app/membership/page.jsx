@@ -1,4 +1,3 @@
-
 export default function Membership() {
   return (
     <main className='max-w-2xl mx-auto py-12 px-4'>

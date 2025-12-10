@@ -1,4 +1,3 @@
-
 export default function Events() {
   return (
     <main className='max-w-4xl mx-auto py-12 px-4'>
