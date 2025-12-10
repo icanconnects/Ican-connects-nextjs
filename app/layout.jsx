@@ -16,11 +16,11 @@ export default function RootLayout({ children }) {
         <header className='border-b border-gray-200 sticky top-0 z-50 bg-white'>
           <div className='max-w-6xl mx-auto flex items-center justify-between p-4'>
             {/* Logo - Clickable to Home */}
-            <Link href='/' className='flex items-center gap-3 hover:opacity-80 transition'>
-              <Image src='/assets/logo.jpg' alt='ICAN logo' width={48} height={48} className='rounded-md object-cover' />
-              <div className='hidden sm:block'>
-                <h1 className='text-lg font-bold text-icanBlue'>ICAN</h1>
-                <p className='text-xs text-gray-600'>Indian Community Association</p>
+            <Link href='/' className='flex items-center gap-2 sm:gap-3 hover:opacity-80 transition'>
+              <Image src='/assets/logo.jpg' alt='ICAN logo' width={40} height={40} className='sm:w-12 sm:h-12 w-10 h-10 rounded-md object-cover' />
+              <div>
+                <h1 className='text-sm sm:text-lg font-bold text-icanBlue'>ICAN</h1>
+                <p className='text-xs text-gray-600 hidden sm:block'>Indian Community Association</p>
               </div>
             </Link>
 
