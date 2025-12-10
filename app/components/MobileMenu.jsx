@@ -18,15 +18,15 @@ export function MobileMenu() {
         </svg>
       </button>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Menu - Full Width Below Header */}
       {menuOpen && (
-        <div className='md:hidden border-t border-gray-200 bg-white absolute top-full left-0 right-0'>
-          <div className='max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3'>
-            <Link href='/#about' className='text-gray-700 hover:text-red-600 py-2 font-medium' onClick={() => setMenuOpen(false)}>About</Link>
-            <Link href='/events' className='text-gray-700 hover:text-red-600 py-2 font-medium' onClick={() => setMenuOpen(false)}>Events</Link>
-            <Link href='/membership' className='text-gray-700 hover:text-red-600 py-2 font-medium' onClick={() => setMenuOpen(false)}>Membership</Link>
-            <Link href='/contact' className='text-gray-700 hover:text-red-600 py-2 font-medium' onClick={() => setMenuOpen(false)}>Contact</Link>
-            <Link href='/membership' className='px-4 py-2 rounded-md bg-red-600 text-white text-sm font-medium text-center hover:bg-red-700 transition' onClick={() => setMenuOpen(false)}>Join ICAN</Link>
+        <div className='md:hidden fixed top-16 left-0 right-0 w-full bg-white border-b border-gray-200 z-40'>
+          <div className='px-4 py-3 flex flex-col gap-3'>
+            <Link href='/#about' className='text-icanDark hover:text-icanBlue py-2 font-medium' onClick={() => setMenuOpen(false)}>About</Link>
+            <Link href='/events' className='text-icanDark hover:text-icanBlue py-2 font-medium' onClick={() => setMenuOpen(false)}>Events</Link>
+            <Link href='/membership' className='text-icanDark hover:text-icanBlue py-2 font-medium' onClick={() => setMenuOpen(false)}>Membership</Link>
+            <Link href='/contact' className='text-icanDark hover:text-icanBlue py-2 font-medium' onClick={() => setMenuOpen(false)}>Contact</Link>
+            <Link href='/membership' className='px-4 py-2 rounded-md bg-icanBlue text-white text-sm font-medium text-center hover:opacity-90 transition' onClick={() => setMenuOpen(false)}>Join ICAN</Link>
           </div>
         </div>
       )}

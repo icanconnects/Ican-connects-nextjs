@@ -31,10 +31,10 @@ export default function Events() {
   ];
 
   return (
-    <main className='min-h-screen bg-gray-50'>
+    <main className='min-h-screen bg-icanLight'>
       <div className='max-w-4xl mx-auto py-16 px-4'>
         <div className='mb-12'>
-          <h2 className='text-4xl font-bold text-slate-900 mb-4'>Events Calendar</h2>
+          <h2 className='text-4xl font-bold text-icanDark mb-4'>Events Calendar</h2>
           <p className='text-lg text-gray-700'>We host a variety of cultural and community events throughout the year.</p>
         </div>
 
@@ -44,9 +44,9 @@ export default function Events() {
               <div className='flex items-start gap-4'>
                 <div className='text-4xl'>{event.emoji}</div>
                 <div className='flex-1'>
-                  <h3 className='text-2xl font-bold text-slate-900 mb-2'>{event.title}</h3>
+                  <h3 className='text-2xl font-bold text-icanDark mb-2'>{event.title}</h3>
                   <p className='text-gray-700 mb-3'>{event.description}</p>
-                  <p className='text-sm font-semibold text-red-600'>📅 {event.date}</p>
+                  <p className='text-sm font-semibold text-icanBlue'>📅 {event.date}</p>
                 </div>
               </div>
             </div>
@@ -54,10 +54,10 @@ export default function Events() {
         </div>
 
         {/* CTA */}
-        <div className='mt-12 p-8 bg-blue-900 text-white rounded-lg text-center'>
+        <div className='mt-12 p-8 bg-icanDark text-white rounded-lg text-center'>
           <h3 className='text-2xl font-bold mb-2'>Want to Host an Event?</h3>
           <p className='mb-4'>Contact us to organize your own community event.</p>
-          <a href='mailto:info@ican-northyork.ca' className='inline-block px-6 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition'>
+          <a href='mailto:info@ican-northyork.ca' className='inline-block px-6 py-2 bg-icanGold text-icanDark rounded-lg font-semibold hover:opacity-90 transition'>
             Get in Touch
           </a>
         </div>

@@ -36,10 +36,10 @@ export default function Membership() {
   };
 
   return (
-    <main className='min-h-screen bg-gray-50'>
+    <main className='min-h-screen bg-icanLight'>
       <div className='max-w-2xl mx-auto py-12 px-4'>
         <div className='bg-white rounded-lg p-8 border border-gray-200'>
-          <h2 className='text-3xl font-bold text-slate-900 mb-2'>Become a Member</h2>
+          <h2 className='text-3xl font-bold text-icanDark mb-2'>Become a Member</h2>
           <p className='text-gray-600 mb-6'>Join ICAN to get event discounts, volunteer opportunities, and monthly updates.</p>
 
           {submitted && (
@@ -56,7 +56,7 @@ export default function Membership() {
                 type='text'
                 name='fullName'
                 placeholder='Your full name'
-                className='w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent'
+                className='w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-icanBlue focus:border-transparent'
                 required
               />
             </div>
@@ -68,7 +68,7 @@ export default function Membership() {
                 type='email'
                 name='email'
                 placeholder='your@email.com'
-                className='w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent'
+                className='w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-icanBlue focus:border-transparent'
                 required
               />
             </div>
@@ -80,7 +80,7 @@ export default function Membership() {
                 type='tel'
                 name='phone'
                 placeholder='(555) 123-4567'
-                className='w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent'
+                className='w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-icanBlue focus:border-transparent'
                 required
               />
             </div>
@@ -92,7 +92,7 @@ export default function Membership() {
                 type='text'
                 name='address'
                 placeholder='Street address, city, postal code'
-                className='w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent'
+                className='w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-icanBlue focus:border-transparent'
                 required
               />
             </div>
