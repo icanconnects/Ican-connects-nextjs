@@ -29,7 +29,7 @@ export default function Home() {
       <section id='about' className='max-w-6xl mx-auto py-20 px-4'>
         <div className='mb-12'>
           <h3 className='text-3xl md:text-4xl font-bold text-icanDark mb-4'>About ICAN</h3>
-          <p className='text-lg text-gray-700 mb-4'>ICAN is a volunteer-run non-profit dedicated to promoting Indian culture in North York. We organize community events, provide support services, and create spaces for networking and celebration.</p>
+          <p className='text-gray-700 mb-4'>ICAN is a volunteer-run non-profit dedicated to promoting Indian culture. We organize community events, provide support services, and create spaces for networking and celebration.</p>
           <p className='text-gray-700'>Our mission is to strengthen the Indian community through cultural celebrations, educational programs, and meaningful connections.</p>
         </div>
 
@@ -103,7 +103,7 @@ export default function Home() {
             {/* Purpose 3 */}
             <div className='p-8 bg-gray-50 rounded-lg hover:shadow-lg transition'>
               <div className='flex items-start gap-4 mb-4'>
-                <div className='text-4xl text-icanBlue'>📅</div>
+                <div className='text-4xl text-icanBlue'>💡</div>
                 <div>
                   <h4 className='text-2xl font-bold text-icanDark mb-2'>Create Opportunities</h4>
                   <p className='text-gray-700'>To create opportunities for collaboration, support, and belonging.</p>
@@ -114,7 +114,7 @@ export default function Home() {
             {/* Purpose 4 */}
             <div className='p-8 bg-gray-50 rounded-lg hover:shadow-lg transition'>
               <div className='flex items-start gap-4 mb-4'>
-                <div className='text-4xl text-icanBlue'>📍</div>
+                <div className='text-4xl text-icanBlue'>🗣️</div>
                 <div>
                   <h4 className='text-2xl font-bold text-icanDark mb-2'>Uplift Voices</h4>
                   <p className='text-gray-700'>To uplift every voice within our growing Indian community.</p>
@@ -132,7 +132,7 @@ export default function Home() {
             <div>
               <h3 className='text-3xl md:text-4xl font-bold text-icanDark mb-6'>Our Mission</h3>
               <p className='text-lg text-gray-700 mb-4'>
-                To build and nurture a vibrant, inclusive community that celebrates Indian culture and heritage while creating meaningful connections among individuals and families in North York.
+                To build and nurture a vibrant, inclusive community that celebrates Indian culture and heritage while creating meaningful connections among individuals and families.
               </p>
               <p className='text-gray-700 mb-4'>
                 We are committed to preserving and promoting Indian cultural traditions, creating safe spaces for connection and growth, supporting education and wellness, and building bridges between generations.
@@ -144,7 +144,7 @@ export default function Home() {
                 To create a thriving space where Indian heritage is celebrated, and community members of all ages feel a sense of belonging, pride, and purpose.
               </p>
               <p className='text-gray-700'>
-                We envision ICAN as a bridge connecting past traditions with present opportunities, fostering stronger relationships, economic empowerment, and social well-being for all members of our North York community.
+                We envision ICAN as a bridge connecting past traditions with present opportunities, fostering stronger relationships, economic empowerment, and social well-being for all members of our community.
               </p>
             </div>
           </div>
