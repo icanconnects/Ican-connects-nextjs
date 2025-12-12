@@ -118,7 +118,7 @@ export async function POST(request) {
       );
 
       if (emailExists) {
-        // Fetch the existing member's data
+        // Fetch all members to check if name and phone also match
         try {
           const token = await getAuthToken();
           const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
@@ -143,29 +143,38 @@ export async function POST(request) {
           );
 
           if (existingMember) {
-            const memberData = {
-              id: existingMember[0],
-              fullName: existingMember[1],
-              email: existingMember[2],
-              phone: existingMember[3],
-              address: existingMember[4],
-              message: existingMember[5] || '',
-              joinDate: existingMember[6],
-              isExisting: true,
-            };
+            const existingName = existingMember[1] ? existingMember[1].trim() : '';
+            const existingPhone = existingMember[3] ? existingMember[3].trim() : '';
+            const inputName = body.fullName.trim();
+            const inputPhone = body.phone.trim();
 
-            return Response.json({
-              success: false,
-              member: memberData,
-              error: 'This email is already registered',
-            }, { status: 409 });
+            // Only show "Welcome Back" if name AND phone also match
+            if (existingName.toLowerCase() === inputName.toLowerCase() && 
+                existingPhone === inputPhone) {
+              const memberData = {
+                id: existingMember[0],
+                fullName: existingMember[1],
+                email: existingMember[2],
+                phone: existingMember[3],
+                address: existingMember[4],
+                message: existingMember[5] || '',
+                joinDate: existingMember[6],
+                isExisting: true,
+              };
+
+              return Response.json({
+                success: false,
+                member: memberData,
+                error: 'Welcome back! You are already a member.',
+              }, { status: 409 });
+            }
           }
         } catch (err) {
           console.error('Error fetching existing member:', err);
         }
 
         return Response.json(
-          { error: 'This email is already registered as a member' },
+          { error: 'This email is already in use' },
           { status: 409 }
         );
       }
