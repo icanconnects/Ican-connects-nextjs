@@ -34,8 +34,12 @@ export default function MembershipCard({ member, onClose }) {
           <div className='relative z-10'>
             {/* Header */}
             <div className='mb-8'>
-              <p className='text-icanGold text-sm font-semibold tracking-wider uppercase'>ICAN Member</p>
-              <h3 className='text-2xl font-bold mt-1'>Community Member Card</h3>
+              <p className='text-icanGold text-sm font-semibold tracking-wider uppercase'>
+                {member.isExisting ? '✓ Member Since' : 'ICAN Member'}
+              </p>
+              <h3 className='text-2xl font-bold mt-1'>
+                {member.isExisting ? 'Welcome Back!' : 'Community Member Card'}
+              </h3>
             </div>
 
             {/* Member Info */}

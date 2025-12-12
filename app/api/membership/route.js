@@ -27,6 +27,37 @@ async function getAuthToken() {
   return token.token;
 }
 
+// Validate email format
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Get existing emails from Google Sheet
+async function getExistingEmails() {
+  const token = await getAuthToken();
+  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+  
+  const response = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1!C:C`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch existing emails');
+  }
+
+  const data = await response.json();
+  const emails = data.values ? data.values.slice(1).flat().filter(e => e && e !== 'email') : [];
+  return emails;
+}
+
 // Append row to Google Sheet using Sheets API
 async function appendToSheet(row) {
   const token = await getAuthToken();
@@ -68,17 +99,92 @@ export async function POST(request) {
       );
     }
 
+    // Validate email format
+    if (!isValidEmail(body.email)) {
+      return Response.json(
+        { error: 'Please enter a valid email address' },
+        { status: 400 }
+      );
+    }
+
+    // Normalize email (lowercase)
+    const normalizedEmail = body.email.toLowerCase().trim();
+
+    // Check for duplicate email
+    try {
+      const existingEmails = await getExistingEmails();
+      const emailExists = existingEmails.some(email => 
+        email.toLowerCase().trim() === normalizedEmail
+      );
+
+      if (emailExists) {
+        // Fetch the existing member's data
+        try {
+          const token = await getAuthToken();
+          const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+          
+          const response = await fetch(
+            `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1!A:G`,
+            {
+              method: 'GET',
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+              },
+            }
+          );
+
+          const data = await response.json();
+          const rows = data.values || [];
+          
+          // Find the row with matching email (column C is index 2)
+          const existingMember = rows.find(row => 
+            row[2] && row[2].toLowerCase().trim() === normalizedEmail
+          );
+
+          if (existingMember) {
+            const memberData = {
+              id: existingMember[0],
+              fullName: existingMember[1],
+              email: existingMember[2],
+              phone: existingMember[3],
+              address: existingMember[4],
+              message: existingMember[5] || '',
+              joinDate: existingMember[6],
+              isExisting: true,
+            };
+
+            return Response.json({
+              success: false,
+              member: memberData,
+              error: 'This email is already registered',
+            }, { status: 409 });
+          }
+        } catch (err) {
+          console.error('Error fetching existing member:', err);
+        }
+
+        return Response.json(
+          { error: 'This email is already registered as a member' },
+          { status: 409 }
+        );
+      }
+    } catch (error) {
+      console.error('Error checking for duplicates:', error);
+      // Continue even if duplicate check fails, but log it
+    }
+
     const memberId = generateMemberId();
     const joinDate = new Date().toISOString();
 
     // Prepare row data for Google Sheet
     const rowData = [
       memberId,
-      body.fullName,
-      body.email,
-      body.phone,
-      body.address,
-      body.message || '',
+      body.fullName.trim(),
+      normalizedEmail,
+      body.phone.trim(),
+      body.address.trim(),
+      body.message ? body.message.trim() : '',
       joinDate,
     ];
 
@@ -88,7 +194,7 @@ export async function POST(request) {
     const memberData = {
       id: memberId,
       fullName: body.fullName,
-      email: body.email,
+      email: normalizedEmail,
       phone: body.phone,
       address: body.address,
       message: body.message || '',

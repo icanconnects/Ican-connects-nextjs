@@ -37,6 +37,10 @@ export default function Membership() {
 
       if (!response.ok) {
         setError(result.error || 'Failed to submit membership');
+        // If it's a duplicate but we have member data, show the card
+        if (result.member && response.status === 409) {
+          setMemberData(result.member);
+        }
         return;
       }
 
