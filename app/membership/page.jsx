@@ -1,14 +1,18 @@
 'use client';
 
 import { useState } from 'react';
+import MembershipCard from '../components/MembershipCard';
 
 export default function Membership() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [memberData, setMemberData] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
 
     // Collect form data
     const formData = new FormData(e.target);
@@ -18,21 +22,39 @@ export default function Membership() {
       phone: formData.get('phone'),
       address: formData.get('address'),
       message: formData.get('message'),
-      submittedAt: new Date().toISOString(),
     };
 
     try {
-      // TODO: Send to backend API endpoint
-      // const response = await fetch('/api/membership', { method: 'POST', body: JSON.stringify(data) });
-      console.log('Membership Data:', data);
+      const response = await fetch('/api/membership', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setError(result.error || 'Failed to submit membership');
+        return;
+      }
+
+      // Set member data to show card
+      setMemberData(result.member);
       setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 3000);
       e.target.reset();
     } catch (error) {
       console.error('Error submitting form:', error);
+      setError('An error occurred. Please try again.');
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleCloseCard = () => {
+    setMemberData(null);
+    setSubmitted(false);
   };
 
   return (
@@ -42,9 +64,15 @@ export default function Membership() {
           <h2 className='text-3xl font-bold text-icanDark mb-2'>Become a Member</h2>
           <p className='text-gray-600 mb-6'>Join ICAN to get event discounts, volunteer opportunities, and monthly updates.</p>
 
-          {submitted && (
+          {error && (
+            <div className='mb-6 p-4 bg-red-50 border border-red-200 rounded-lg'>
+              <p className='text-red-800 font-semibold'>✗ {error}</p>
+            </div>
+          )}
+
+          {submitted && !memberData && (
             <div className='mb-6 p-4 bg-green-50 border border-green-200 rounded-lg'>
-              <p className='text-green-800 font-semibold'>✓ Thank you for joining! We'll be in touch soon.</p>
+              <p className='text-green-800 font-semibold'>✓ Processing your membership...</p>
             </div>
           )}
 
@@ -112,7 +140,7 @@ export default function Membership() {
             <button
               type='submit'
               disabled={loading}
-              className='w-full px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition disabled:bg-gray-400'
+              className='w-full px-6 py-3 bg-icanBlue text-white rounded-lg font-semibold hover:opacity-90 transition disabled:bg-gray-400'
             >
               {loading ? 'Submitting...' : 'Submit Membership'}
             </button>
@@ -123,6 +151,11 @@ export default function Membership() {
           </p>
         </div>
       </div>
+
+      {/* Membership Card Popup */}
+      {memberData && (
+        <MembershipCard member={memberData} onClose={handleCloseCard} />
+      )}
     </main>
   )
 }
